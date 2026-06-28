@@ -1,0 +1,233 @@
+/* start box */
+.d-flex{
+    display: flex;
+}
+
+.d-block{
+    display: block;
+}
+.d-fform{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.allign-self{
+    align-self: flex-start;
+}
+.align-center{
+    align-items: center;
+}
+.justify-items{
+    justify-items: center;
+}
+.justify-content{
+    justify-content: center;
+}
+.d-grid{
+    display: grid;
+}
+@media (max-width: 767px){
+.block-mobile{
+    display: block;
+}}
+.gap-20{
+    gap: 20px;
+}
+/* end box */
+/* stat padding + margin */
+.p-20{
+    padding: 20px;
+}
+.m-t30{
+    margin-top: 30px;
+}
+.m-20{
+    margin: 20px;
+}
+.p-10{
+    padding: 10px;
+}
+.pf-20{
+    padding: 12px 13px 0 0 ;
+}
+.pb-20{
+    padding-bottom: 20px;
+}
+.par-25{
+    margin-right: 25%;
+}
+.p-15{
+    padding: 15px;
+}
+.m-0{
+    margin: 0;
+}
+.m-5{
+    margin: 5px;
+}
+.m-10{
+    margin: 10px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+
+
+
+
+/* end padding + margin */
+/* start color  */
+.b-red{
+    background-color: red;
+}
+
+.bg-white{
+    background-color: white;
+}
+/* تنسيق بطاقات النتائج */
+.b-yelllow {
+    background-color: #fdfdfe;
+    border-right: 5px solid #ffc107; /* خط جانبي أصفر */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.b-green {
+    background-color: #f8fff9;
+    border-right: 5px solid #28a745; /* خط جانبي أخضر للنتيجة النهائية */
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.1);
+}
+
+/* تمييز الأرقام داخل السبان */
+.ps-20 {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+.bg-grey{
+    background-color: grey;
+}
+.bg-rgba{
+          background-color: rgba(0, 0, 0, 0.8)
+}
+.c-black{
+    color: black;
+}
+.c-green{
+    color: green;
+}
+.bg-eee{
+    background-color: #eee;
+}
+.c.grey{
+    color: grey;
+}
+.c-white{
+    color: white;
+}
+.b-yellow{
+    background-color: yellow;
+}
+.bg-per{
+    background-color: #0d1138;
+}
+.bg-grey{
+    background-color: grey#3f084b;
+}
+
+/* end color  */
+/* start border radios */
+
+
+.rad-6 {
+   /* border: 1px solid #ccc; */
+    border-radius: 6px;
+    
+}
+.rad-10{
+   /* border: 1px solid #ccc; */
+   border-radius: 10px; 
+}
+.rad-10-per{
+   /* border: 1px solid #ccc; */
+   border-radius: 10px 10px 0 0 ; 
+}
+/* end border radios */
+/* start position  */
+.p-relative{
+    position: relative;
+}
+.p-absolute{
+    position: absolute;
+}
+
+/* end position  */
+/* stat font  */
+.fs-14{
+   font-size: 14px; 
+}  
+.fw-b{
+    font-weight: bold;
+}
+.text-c{
+    text-align: center;
+}
+@media (max-width: 767px){
+.text-c-mobile{
+    text-align: center;
+}
+}
+
+/* end font  */
+/* start width  */
+.w-full{
+    width: 100%;
+}
+.w-50{
+    width: 50%;
+}
+.w-75{
+    width: 75%;
+}
+.w-25{
+    width: 25%;
+}
+.w-10{
+    width: 10%;
+}
+.w-15{
+    width: 15%;
+}
+.w-35{
+    width: 35%;
+}
+.w-40{
+    width: 40%;
+}
+.w-30{
+   width: 39px;
+}
+.w-200{
+    width: 200px;
+}
+.h-vp{
+    height: 100vh;
+}
+/* end width  */
+/* start components  */
+.btween-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.botonipr{
+  bottom: 100px;
+    right: 321px;
+}
+/* end components  */

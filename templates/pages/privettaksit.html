@@ -1,0 +1,181 @@
+ {% extends "base.html" %}
+
+{% load static %}
+
+{%   block content   %}
+            
+              
+<!-- start wrapper  -->
+<div class="wrapper d-grid gap-20 mt-20">
+  <!-- start add information  -->
+  <div class="formadd bg-white rad-10 text-c-mobile block-mobile">
+    <!-- <div class="personelinfo d-flex justify-content b-yellow rad-10-per">
+                        <h2 class="">معلومات الزبون</h2>
+                    </div> -->
+    <!-- <div class="personelinfo d-flex p-10 c-white bg-per rad-10 m-20">
+                        <h3 class="m-0">معلومات الحساب البريدي</h3>
+                    </div> -->
+    <form class="">
+      {% csrf_token %}
+                        <div class="d-fform pf-20">
+                            <label for="full_name" class="w-50">الاسم واللقب :</label>
+                            <div class="w-50"><label for="phonenum">رقم الهاتف :</label></div>
+                        </div>
+                        <div class="d-fform pf-20">
+                            <input type="text" id="full_name" name="full_name" class="w-200">
+                            <!-- <input type="number" id="phone" name="phone_number"> -->
+                            <div class="w-50"><input type="number" id="phonenum" name="phonenum"></div>
+
+                        </div>
+
+                        <div class="d-fform pf-20">
+
+                            
+                        </div>
+
+                        <!-- <label for="first_name">الاسم بالعربية</label>
+                        <input type="text" name="first_name_ar">
+                        <label for="first_name">اللقب بالعربية</label>
+                        <input type="text" name="last_name_ar"> -->
+                        <div class="d-fform pf-20">
+                            
+                        </div>
+                        <div class="d-fform pf-20">
+                            <label for="numrecip">رقم الوصل :</label>
+                            
+                            <div class="w-50">
+                                <label for="rahn">الرهن متمثل في :</label>
+                            </div>
+                        </div>
+                        <div class="d-fform pf-20"><input type="text" id="numrecip" name="numrecip">
+                            <div class="w-50"><input type="text" id="rahn" name="rahn"></div>
+                        </div>
+                        <div class="d-fform pf-20">
+                            <label for="datepaid">تاريخ الشراء :</label>
+                            <div class="w-50">
+                                <label for="dateident">تاريخ التذكير :</label>
+                                
+                                <!-- <label for="phonenumber">رقم الهاتف</label> -->
+                            </div>
+                        </div>
+                        <div class="d-fform pf-20 pb-20">
+                            <input type="date" id="datepaid" name="datepaid" value="">
+                            <div class="w-50">
+                                <!-- <select id="daySelect" name="day">
+                                    <option value="">اختر اليوم</option>
+                                </select> -->
+                                <input type="number" id="datreminder" name="datreminder" class="w-25">
+                                <span class="p-10">من كل شهر</span>
+                            </div>
+                        </div>
+                        
+                   
+    </form>
+  </div>
+
+  <!-- end add information  -->
+  <!-- start add payment info  -->
+
+  <div class="formaddpay bg-white rad-10 text-c-mobile block-mobile">
+    <form class="">
+      <div class="pf-20 d-fform">
+        <label for="ccp" class="w-50">المبلغ الاصلي </label>
+        <label for="cle" class="w-15"> النسبة </label>
+        <label for="cle" class="w-35"> عدد الاشهر </label>
+      </div>
+      <div class="d-fform pf-20">
+        <input id="totalAmount" type="text" name="ccp" class="" />
+        <div class="cld w-50">
+          <input
+            type="number"
+            id="annualRate"
+            name="cle"
+            class="w-30"
+            minlength="2"
+            maxlength="2"
+            value="35"
+          />
+
+          <input
+            type="number"
+            id="months"
+            name="cle"
+            class="par-25 w-30"
+            max="2"
+            value="12"
+          />
+          <i id="iconplus" class="fa-solid fa-plus fa-2xl p-relative"></i>
+        </div>
+      </div>
+      <div id="secondmonton" class="hide">
+        <div id="secondcl" class="pf-20 d-fform">
+          <label for="ccp" class="w-50">المبلغ الثاني </label>
+          <label for="cle" class="w-50"> النسبة </label>
+          <i id="iconminus" class="fa-solid fa-minus fa-2xl p-relative"></i>
+        </div>
+        <div class="d-fform pf-20">
+          <input
+            id="totalAmounttwo"
+            type="text"
+            name="totalAmounttwo"
+            class=""
+            value=""
+          />
+          <div class="cld w-50">
+            <input
+              id="annualRatetwo"
+              type="number"
+              name="annualRatetwo"
+              class="w-30"
+              maxlength="2"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="pf-20 d-fform m-t30">
+        <label for="ccp" class="w-25">الدفعة الاولية </label>
+        <i id="iconplusdis" class="fa-solid fa-plus fa-2xl p-relative"></i>
+        <div class="w-75 hide" id="disbut">
+          <input id="discountprice" type="number" name="ccp" class="w-50" />
+          <i id="iconminusdis" class="fa-solid fa-minus fa-2xl p-relative"></i>
+        </div>
+      </div>
+    </form>
+    <div class="p-20">
+      <h2 class="b-yelllow w-75">
+        المبلغ الاصلي :<span id="fprice" class="p-20"></span>
+      </h2>
+      <div class="b-yelllow w-75">
+        <h2 class="">
+          النسبة :<span id="perce" class="p-20"></span> عدد الاشهر :<span
+            id="monthc"
+            class="p-20"
+          ></span>
+        </h2>
+        <!-- <h2 class="">عدد الاشهر<span class="p-20">1200000</span></h2>  -->
+      </div>
+
+      <h2 class="b-yelllow w-75">
+        المبلغ بالنسبة :<span id="perpri" class="p-20"></span>
+      </h2>
+      <h2 class="b-green w-75">
+        الاقتطاع الشهري :<span id="monthlycut" class="p-20"></span>
+      </h2>
+    </div>
+  </div>
+  <!-- end add payment info  -->
+</div>
+<!-- end wrapper  -->
+
+ <div class="  botonipr  p-absolute">
+                <button id="btnpriv" type="submit" class="btn-print">
+                    <i class="fa-solid fa-print"></i>طباعة وثيقة تتبع الاقساط </button>
+            </div>
+
+{% endblock content %}  
+
+{% block scripts %}
+    <script src="{% static 'js/privettaksit.js'%}" ></script>
+{% endblock scripts  %}
+{% csrf_token %}

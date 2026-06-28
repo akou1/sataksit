@@ -1,0 +1,297 @@
+
+
+/* start gloobal rules  */
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+:root{
+      --main-color: #2196f3;
+  --main-color-alt: #1787e0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* scrol bar  */
+/* ::-webkit-scrollbar{
+  width: 15px;
+
+}
+::-webkit-scrollbar-track{
+  background-color: white;
+  position: absolute;
+  right:  10px;
+
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: var(--main-color-alt);
+
+} */
+/* endscrool bar  */
+
+*:focus{
+  outline: none;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* end gloobal rules  */
+/* start navbare  */
+.page{
+  background-color: #f1f5f9;
+  min-height: 100vh;
+}
+.sidebar{
+  width: 190px;
+}
+.sidebar .logo{
+  height: 100px;
+  padding-right: 20px;
+  position: relative;
+}
+.logo{
+  padding-bottom: 20px;
+}
+.sidebar ul li a i{
+  padding-left: 10px;
+}
+
+.sidebar ul li a{
+  transition: 0.3s;
+  margin-bottom: 5px;
+
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+  background-color: #f6f6f6;
+}
+.sidebar ul li span{
+  margin-left: 10px;
+
+}
+@media (max-width: 768px) {
+  .sidebar {
+    width: 58px;
+    padding: 10px;
+  }
+  .sidebar ul li span{
+  display: none;
+
+}
+.sidebar .logo{
+  height: 60px;
+  left: 15px;
+}
+.sidebar ul li a.active{
+  background-color: #f6f6f6;
+  width: 35px;
+}
+}
+/* end navbare  */
+/* start header  */
+.content{
+  overflow: hidden;
+}
+header .icons{
+  padding-right: 50px;
+}
+@media (max-width: 768px) {
+  .content .head  a span {
+   display: none;
+  }
+}
+@media (max-width: 768px) {
+  header .icons{
+  padding-right: 10px;
+
+}
+
+}
+header .search::before{
+  font-family: var(--fa-style-family-classic);
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+    right: 10px;
+    color: #ccc;
+    transform: translateY(-50%);
+
+}
+header .search input{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+ padding-right: 30px;
+}
+header .search input:hover{
+  
+}
+.page h1{
+  margin: 20px 20px 40px ;
+}
+
+.page h1::before,
+.page h1::after{
+  content: '';
+  height: 3px;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+
+}
+.page h1::before{
+  background-color: white;
+  width: 80px;
+}
+.page h1::after{
+  background-color: green;
+  width: 50px;
+}
+
+
+
+/* end header  */
+/* start content  */
+
+.wrapper{
+  grid-template-columns: repeat(auto-fill , minmax(450px , 1fr));
+  margin-left: 20px;
+  margin-right: 20px;
+}
+@media (max-width:767px) {
+  
+.wrapper{
+  grid-template-columns:  minmax(200px , 1fr);
+  margin-left: 10px;
+  margin-right: 10px;
+  gap: 10px;
+}
+  
+  
+}
+
+/* end content  */
+/* start form  */
+form label{
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  
+}
+.loogo{
+  top:  0;
+}
+#iconplus{
+  left: -50px;
+}
+#iconminus{
+     top: 40px;
+    left: 99px;
+}
+#iconplusdis{
+left: 390px;
+top: 6px;
+}
+.hide{
+  display: none !important;
+}
+label{
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/* --- ألوان حقول الإدخال (الأنبوت) --- */
+input[type="text"], 
+input[type="number"], 
+input[type="date"] {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: #fefefe;
+}
+
+/* عند الضغط على الحقل للكتابة */
+input:focus {
+    border-color: #2196F3; /* لون أزرق */
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+    background-color: #fff;
+}
+.btn-print {
+    background-color: #2196F3; /* لون أزرق رسمي */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px; /* حواف دائرية عصرية */
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-center: center;
+    gap: 10px; /* مسافة بين الأيقونة والنص */
+    transition: all 0.3s ease; /* سلاسة في التفاعل */
+    box-shadow: 0 4px 6px rgba(33, 150, 243, 0.2);
+    margin-top: 20px;
+    width: fit-content;
+}
+
+/* تأثير عند تمرير الماوس */
+.btn-print:hover {
+    background-color: #1976D2; /* تغميق اللون قليلاً */
+    box-shadow: 0 6px 12px rgba(33, 150, 243, 0.3);
+    transform: translateY(-2px); /* رفعة بسيطة للزر */
+}
+
+/* تأثير عند الضغط */
+.btn-print:active {
+    transform: translateY(0);
+}
+.botoni{
+  bottom: 10px;
+    right: 321px;
+}
+.botonipr{
+  bottom: 100px;
+    right: 321px;
+}
+/* end form  */

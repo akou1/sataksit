@@ -1,0 +1,106 @@
+{% load static %}
+<!doctype html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/framwork.css'%}"  />
+    <link rel="stylesheet" href="{% static 'css/master.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/all.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>لوحة التحكم</title>
+  </head>
+
+  <body>
+    <div class="page d-flex">
+      <aside class="sidebar bg-white p-20 p-relative">
+        <img class="logo" src="{% static '/images/logo.png'%}" alt="" />
+        <ul>
+          <li>
+            <a
+              class="active d-flex align-center fs-14 c-black rad-6 p-10"
+              href="index.html"
+            >
+              <i class="fa-solid fa-chart-bar fa-fw"></i>
+              <span>لوحة التحكم</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="d-flex align-center fs-14 c-black rad-6 p-10"
+              href="tksitsystem.html"
+            >
+              <i class="fa-solid fa-building-columns"></i>
+              <span>التقسيط بالسيستام</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="d-flex align-center fs-14 c-black rad-6 p-10"
+              
+              href="{% url 'taksitcompany' %}"
+            >
+              <i class="fa-solid fa-building"></i>
+              <span>تقسيط المؤسسات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="d-flex align-center fs-14 c-black rad-6 p-10"
+              href="{% url 'privettaksit' %}"
+            >
+              <i class="fa-solid fa-wallet"></i>
+              <span> التقسيط الخاص</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="d-flex align-center fs-14 c-black rad-6 p-10"
+              href="{% url 'addnew' %}"
+            >
+              <i class="fa-solid fa-square-plus"></i>
+              <span>اضافة تقسيط</span>
+            </a>
+          </li>
+            <li>
+            <a
+              class="d-flex align-center fs-14 c-black rad-6 p-10"
+              href="{% url 'addclient' %}"
+            >
+              <i class="fa-solid fa-square-plus"></i>
+              <span>اضافة زبون</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <div class="content w-full">
+        <!-- start head  -->
+        <header class="head bg-white p-15 btween-flex">
+          <div class="icons d-flex align-center">
+            <a
+              class="d-flex align-center fs-14 c-black rad-6 p-10 active fw-b"
+              href="{% url 'addnew' %}"
+            >
+              <i class="fa-solid fa-square-plus fa-2xl c-green fs-14"></i>
+              <span>اضافة تقسيط</span>
+            </a>
+          </div>
+          <div class="search p-relative">
+            <input class="p-10" type="search" placeholder="اكتب الاسم" />
+          </div>
+        </header>
+        {% block content %} {% endblock content %}
+      </div>
+    </div>
+    {% block scripts %}
+
+     {% endblock scripts %}
+    
+  </body>
+</html>
