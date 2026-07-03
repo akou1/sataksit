@@ -1,9 +1,10 @@
 # في views.py
-from django.shortcuts import render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import JsonResponse
 import json
 from baladia.main_printer import print_full_bundle
 from baladia.taksitprivet import print_privet_tk
+from .models import addclients
 
 
 # Create your views here.
@@ -145,4 +146,76 @@ def taksitcompany(request):
             }, status=400)
 
 def addclient(request):
-    return render(request, "pages/addclient.html" )
+    if request.method == 'GET':
+        return render(
+            request, "pages/addclient.html", {"pro": addclients.objects.all()}
+        )
+    elif request.method == "POST":
+        # يستقبل البيانات عندما يرسل النموذج
+        try:
+
+            data = json.loads(request.body)
+
+            print("\n--- بيانات التقسيط الواصلة ---")
+            personelinfo = data["personal_info_sy"]
+            print(personelinfo)
+            addclientse = addclients.objects.create(
+                cle=personelinfo["cle"],
+                ccp=personelinfo["ccp"],
+                name=personelinfo["first_name"],
+                lastname=personelinfo["last_name"],
+            )
+
+            return JsonResponse(
+                {"status": "success", "msg": "تم التسجيل!"}
+            ) 
+
+        except Exception as e:
+            return JsonResponse({"status": "error", "msg": str(e)}, status=400)
+
+
+def update(request, id):
+    # 1. جلب بيانات العميل الحالي بناءً على الـ id أو إظهار خطأ 404 إذا لم يكن موجوداً
+    client = get_object_or_404(addclients, id=id)
+
+    # 2. التحقق مما إذا كان الطلب من نوع POST (إرسال بيانات)
+    if request.method == "POST":
+        try:
+            # تحويل البيانات القادمة بصيغة JSON إلى قاموس (Dictionary)
+            data = json.loads(request.body)
+            personelinfo = data.get("personal_info_sy", {})
+
+            # تحديث حقول العميل بالقيم الجديدة
+            client.cle = personelinfo.get("cle", client.cle)
+            client.ccp = personelinfo.get("ccp", client.ccp)
+            client.name = personelinfo.get("first_name", client.name)
+            client.lastname = personelinfo.get("last_name", client.lastname)
+
+            # حفظ التعديلات في قاعدة البيانات
+            client.save()
+
+            # إرجاع استجابة بنجاح العملية للفرونت إند
+            return JsonResponse(
+                {"status": "success", "message": "تم تحديث البيانات بنجاح"}
+            )
+
+        except (ValueError, KeyError):
+            # إرجاع خطأ في حال كانت البيانات المرسلة غير صالحة
+            return JsonResponse(
+                {"status": "error", "message": "بيانات غير صالحة"}, status=400
+            )
+
+    # 3. إذا كان الطلب من نوع GET، يتم عرض صفحة التعديل مع تمرير بيانات العميل الحالية
+    return render(request, "pages/update.html", {"client": client})
+
+
+def delete(request, id):
+    client = get_object_or_404(addclients, id=id)
+
+    if request.method == "POST":
+        client.delete()
+        
+
+        return JsonResponse({"status": "success", "message": "تم حذف البيانات بنجاح"})
+
+    return render(request, "pages/delete.html", {"client": client})

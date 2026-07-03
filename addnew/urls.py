@@ -6,4 +6,6 @@ urlpatterns = [
     path("addnew/privettaksit.html/", views.privettaksit, name="privettaksit"),
     path("addnew/taksitcompany.html/", views.privettaksit, name="taksitcompany"),
     path("addnew/addclient.html/", views.addclient, name="addclient"),
+    path("update/<int:id>/", views.update, name="update"),
+    path("delete/<int:id>/", views.delete, name="delete"),
 ]

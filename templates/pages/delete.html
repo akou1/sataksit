@@ -17,14 +17,15 @@
                     </div> -->
     <form class="">
       {% csrf_token %}
+      <input type="hidden" id="clientId" value="{{ client.id }}">
       <div class="pf-20 d-fform">
         <label for="ccp" class="w-50">الحساب البريدي</label>
         <label for="cle" class="w-50"> مفتاح</label>
       </div>
       <div class="d-fform pf-20">
-        <input id="ccp" type="number" name="ccp" class="" />
+        <input id="ccp" type="number" name="ccp" class="" value="{{ client.ccp}}" />
         <div class="cld w-50">
-          <input id="cle" type="number" name="cle" class="w-30" />
+          <input id="cle" type="number" name="cle" class="w-30" value="{{ client.cle}}"/>
         </div>
       </div>
 
@@ -33,20 +34,14 @@
         <label for="first_name" class="w-50">الاسم</label>
       </div>
       <div class="d-fform pf-20">
-        <input type="text" id="firstName" name="first_name" class="w-200" />
+        <input type="text" id="firstName" name="first_name" class="w-200"  value="{{ client.name }}"/>
         <div class="w-50">
-          <input type="text" id="lastName" name="last_name" class="w-200" />
+          <input type="text" id="lastName" name="last_name" class="w-200"  value="{{ client.lastname }}"/>
         </div>
       </div>
 
     </form>
-     {% for x in pro %}
-     
-  <a href="{% url "update" x.id %}" ><i class="fa-solid fa-pen-to-square"></i></a>
-  <a href="{% url "delete" x.id %}" ><i class="fa-solid fa-trash"></i></a>
   
-  <h1>{{x}}</h1>
-  {% endfor %}
   </div>
  
   
@@ -152,6 +147,6 @@
 
 {% endblock content %}  
 {% block scripts %}
-    <script src="{% static 'js/addclient.js'%}" ></script>
+    <script src="{% static 'js/delete.js'%}" ></script>
 {% endblock scripts %}
 {% csrf_token %}
