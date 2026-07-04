@@ -4,8 +4,7 @@ from django.http import JsonResponse
 import json
 from baladia.main_printer import print_full_bundle
 from baladia.taksitprivet import print_privet_tk
-from .models import addclients
-
+from .models import addclients, Worker
 
 # Create your views here.
 def addnew(request):
@@ -214,8 +213,20 @@ def delete(request, id):
 
     if request.method == "POST":
         client.delete()
-        
 
         return JsonResponse({"status": "success", "message": "تم حذف البيانات بنجاح"})
 
     return render(request, "pages/delete.html", {"client": client})
+
+
+def worker_search(request):
+    query = request.GET.get("q", "")
+
+    workers = Worker.objects.filter(name__icontains=query)
+
+    results = list(workers.values("id", "name"))
+
+    return JsonResponse(results, safe=False)
+
+def workers_page(request):
+    return render (request, "pages/workers.html")
