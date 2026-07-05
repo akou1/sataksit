@@ -106,7 +106,7 @@ const TaksitSystem = {
     const el = this.elements;
 
     // ربط الـ CCP
-    // el.ccp.onkeyup = () => (el.cle.value = self.getCleCCP(el.ccp.value));
+    el.ccp.onkeyup = () => (el.cle.value = self.getCleCCP(el.ccp.value));
 
     // // ربط حقول الحسابات
     // const inputs = [
